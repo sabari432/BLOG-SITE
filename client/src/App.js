@@ -1,90 +1,41 @@
 import './App.css';
+import Post from './Post';
+import Header from './Header';
+import {Route, Routes} from 'react-router-dom';
+import Layout from './Layout';
+import IndexPage from './Pages/indexPage';
+import LoginPage from './Pages/LoginPage';
+import RegisterPage from './Pages/RegisterPage';
+import {UserContextProvider} from './UserContext';
+// import CreatePost from "./pages/CreatePost";
+// import PostPage from "./pages/PostPage";
+// import EditPost from "./pages/EditPost";
 
 function App() {
   return (
-    <main>
-      <header>
-        <a
-          href=""
-          className='logo'>
-          MYBLOG
-        </a>
-        <nav>
-          <a href=''>Login</a>
-          <a href=''>Register</a>
-        </nav>
-      </header>
-
-      <div className='post'>
-      <div className="image"> 
-        <img
-          src='https://plus.unsplash.com/premium_photo-1665329006985-04f95dd59402?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmxvZ3xlbnwwfHwwfHx8MA%3D%3D'
-          alt=''
-        />
-        </div>
-
-        <div className='text'>
-          <h2>full house battery backup coming last this year</h2>
-          <p className="info">
-            <a className="author">Dhanushkumar</a>
-            <time >20-07-2024 04:45</time>
-          </p>
-          <p className="summary">
-            When I was an elementary school, I have so many time to travel with
-            my family. But, Now something amazing happend. My family are broke
-            up. I felt face to reality that anyone else can hep us except
-            oursefl. So, I begin my life with my self. Some day I will go to
-            travel around the world. 
-          </p>
-        </div>
-      </div>
-      <div className='post'>
-      <div className="image"> 
-        <img
-          src='https://plus.unsplash.com/premium_photo-1665329006985-04f95dd59402?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmxvZ3xlbnwwfHwwfHx8MA%3D%3D'
-          alt=''
-        />
-        </div>
-
-        <div className='text'>
-          <h2>full house battery backup coming last this year</h2>
-          <p className="info">
-            <a className="author">Dhanushkumar</a>
-            <time >20-07-2024 04:45</time>
-          </p>
-          <p className="summary">
-            When I was an elementary school, I have so many time to travel with
-            my family. But, Now something amazing happend. My family are broke
-            up. I felt face to reality that anyone else can hep us except
-            oursefl. So, I begin my life with my self. Some day I will go to
-            travel around the world. 
-          </p>
-        </div>
-      </div>
-      <div className='post'>
-      <div className="image"> 
-        <img
-          src='https://plus.unsplash.com/premium_photo-1665329006985-04f95dd59402?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmxvZ3xlbnwwfHwwfHx8MA%3D%3D'
-          alt=''
-        />
-        </div>
-
-        <div className='text'>
-          <h2>full house battery backup coming last this year</h2>
-          <p className="info">
-            <a className="author">Dhanushkumar</a>
-            <time >20-07-2024 04:45</time>
-          </p>
-          <p className="summary">
-            When I was an elementary school, I have so many time to travel with
-            my family. But, Now something amazing happend. My family are broke
-            up. I felt face to reality that anyone else can hep us except
-            oursefl. So, I begin my life with my self. Some day I will go to
-         
-          </p>
-        </div>
-      </div>
-    </main>
+    <UserContextProvider>
+      <Routes>
+        <Route
+          path='/'
+          element={<Layout />}>
+          <Route
+            index
+            element={<IndexPage />}
+          />
+          <Route
+            path='/login'
+            element={<LoginPage />}
+          />
+          <Route
+            path='/register'
+            element={<RegisterPage />}
+          />
+          {/* <Route path="/create" element={<CreatePost />} />
+          <Route path="/post/:id" element={<PostPage />} />
+          <Route path="/edit/:id" element={<EditPost />} /> */}
+        </Route>
+      </Routes>
+    </UserContextProvider>
   );
 }
 
